@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-transition: all 0.5s;
+    transition: all 0.2s;
+}
+:root{
+    --body-color : #18191a;
+    --text-color : #ffffff ;
+    --sidebar-color : #242526;
+    --primary-color : #229efd;
+    --primary-color-light : #05d8a3;
+}
+
+body{
+    background: var(--body-color);
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+.menu-icon{
+    display: none;
+}
+
+.material-symbols-outlined {
+  font-size: 35px;
+  line-height: 1px;
+  vertical-align: middle;
+  color:var(--text-color);
+  cursor: pointer;
+}
+
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 240px 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 3fr;
+  grid-template-areas: 
+        "sidebar header header header"
+        "sidebar main main main";
+  height: 100vh;      
+}
+.grid-container::-webkit-scrollbar{
+    display: hidden;
+}
+
+/* -------------------header section------------------- */
+.header{
+grid-area: header;
+height: 70px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 30px 0 30px;
+box-shadow: 0 6px 7px -3px rgba(0,0,0,0.35);
+background: var(--sidebar-color);
+
+}
+.header-right{
+    display: flex;
+    justify-content: space-between;
+}
+.header-right h4{
+    margin-left: 10px;
+    color:var(--text-color);
+    font-weight: 500;
+}
+#searchInp{
+    outline: none;
+    border: none;
+    width: 280px;
+    background: none;
+    color:var(--text-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.171);
+    padding: 5px;
+}
+/* -------------------header section Ending------------------- */
+
+
+
+/* -------------------sidebar section------------------- */
+#sidebar{
+grid-area: sidebar;
+background: var(--sidebar-color);
+height: 100%;
+overflow-y: auto;
+background: var(--sidebar-color);
+color:var(--text-color);
+}
+body.day #storeTitle{
+    color: var(--primary-color);
+}
+.sidebar-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    margin-bottom: 30px;
+    margin-top: -23px;
+}
+.sidebar-list-item > span{
+    margin-right: 17px;
+}
+
+.sidebar-title > span{
+    display: none;
+    margin-left: 23px;
+    font-size: 20px;
+    margin-top: 13px;
+}
+.sidebar-brand{
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.sidebar-list{
+    padding: 0;
+    margin-top: 15px;
+    list-style: none;
+    
+}
+.sidebar-list-item{
+    padding: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.sidebar-list-item:hover{
+    background-color: rgba(255,255,255,0.2);
+    cursor: pointer;
+}
+.sidebar-responsive{
+    display: inline !important;
+    position: absolute;
+    z-index: 12 !important;
+}
+
+.toggle{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    border-top: 1px solid rgba(209, 209, 209, 0.171);
+}
+.toggle:hover{
+    background-color: rgba(255,255,255,0.2);
+    cursor: pointer;
+}
+.toggle .toggle-btn span{
+   position: absolute;
+   left: 20px;
+   top: 30px;
+   font-size: 25px;
+}
+#dark{
+    display: none;
+}
+body.day #dark{
+    display: block;
+}
+body.day #day{
+    display: none;
+}
+
+.toggle p{
+    margin: 30px 60px;
+}
+/* -------------------sidebar section Ending------------------- */
+
+
+
+/* -------------------Main section------------------- */
+
+.main-container{
+position: relative;
+grid-area: main;
+overflow-y: auto;
+padding: 20px;
+color: rbga(255,255,255,0.05);
+color:var(--text-color);
+}
+.main-title{
+    display: flex;
+    justify-content: space-between;
+    transition: 0.5s ease-in-out;
+}
+.main-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    margin: 15px 0;
+    transition: 0.5s ease-in-out;
+}
+.card{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 25px;
+border-radius: 5px;
+box-shadow: 0 6px 7px -4px rgba(0,0,0,0.2);
+border: none;
+transition: 0.5s ease-in-out;
+}
+.card:first-child{
+    background-color: var(--primary-color);
+}
+.card:nth-child(2){
+    background-color: var(--primary-color-light);
+}
+.card:nth-child(3){
+    background-color: var(--primary-color);
+}
+.card:nth-child(4){
+    background-color: var(--primary-color-light);
+}
+
+.card-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-inner > .material-symbols-outlined{
+    font-size: 45px;
+}
+
+.charts{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 25px;
+    transition: 0.5s ease-in-out;
+}
+.chart-card{
+    background: var(--sidebar-color);
+    margin-bottom: 20px;
+    padding: 25px;
+    box-sizing: border-box;
+    -webkit-column-break-inside: avoid;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0,0,0,0.2);
+    color:var(--text-color);
+    
+}
+#bar-chart{
+    margin-top: 60px;
+}
+.chart-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 500
+}
+.main-title.productAtive{
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.main-cards.productAtive{
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.card.productAtive{
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.charts.productAtive{
+    transform: translateX(-100%);
+    opacity: 0;
+}
+/* -------------------Main section Ending------------------- */
+
+
+
+
+/* -------------------Product section------------------- */
+.product-section.productAtive{
+   transform: translateX(0%);
+   opacity: 1;
+}
+
+.product-section{
+position: absolute;
+top: 10px;
+grid-area: main;
+overflow-y: auto;
+color: rbga(255,255,255,0.05);
+color:var(--text-color);
+transform: translateX(100%);
+opacity: 0;
+transition: 0.5s ease-in-out;
+}
+.product-title{
+display: flex;
+justify-content: space-between;
+}
+.products-card{
+    width: 100%;
+    margin-top: 20px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr ;
+    gap: 80px;
+    cursor: pointer;
+    padding-left: 80px;
+}
+.product,.product-inner{
+    width: 250px;
+    height: 200px;
+    background-color: #3a3b3c;
+    border-radius: 5px;
+}
+.product,.product-inner:hover{
+    background-color: var(--primary-color);
+}
+.product-inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.product-inner:hover{
+    width:255px;
+    height: 205px;
+}
+.product-inner > span{
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+#dashboardBtn{
+    position: relative;
+}
+#productBtn{
+    position: relative;
+}
+.dot1{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #229efd;
+    top: 32px;
+    left: 180px;
+}
+.dot2{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #229efd;
+    top: 32px;
+    left: 180px;
+}
+/* -------------------Product section------------------- */
+
+
+
+
+
+/* --------------------------Media Quiries--------------------- */
+
+/* medium size */
+
+@media screen and (max-width:992px){
+    .grid-container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 3fr;
+        grid-template-areas: 
+          "header"
+          "main";
+    }
+ #sidebar{
+    display: none;
+ }   
+ .menu-icon{
+    display: inline;
+ }
+ .sidebar-title > span{
+    display: inline; 
+ }
+ .products-card{
+    grid-template-columns:2fr 2fr;
+    grid-template-rows: 2fr 2fr;
+    height: auto;
+    overflow-y: auto;
+    padding-left: 160px;
+ }
+
+ .charts.productAtive{
+   display: none;
+}
+
+}
+
+/* small <= 768 */
+
+@media screen and (max-width:768px){
+    .main-cards{
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 0;
+    }
+    .charts{
+        grid-template-columns: 1fr;
+        margin-top: 30px;
+    }
+    .products-card{
+       grid-template-columns: 2fr 2fr;
+       padding-left: 50px;
+    
+    }
+    .products-card{
+        grid-template-columns:2fr 2fr;
+        grid-template-rows: 2fr 2fr;
+        height: auto;
+        overflow-y: auto;
+        padding-left: 80px;
+     }
+     .charts.productAtive{
+       display: none;
+    }
+}
+    
+
+
+/* Extra small <= 576 */
+
+@media screen and (max-width:576px){
+    .header-left{
+        display: none;
+    }
+    .products-card{
+        grid-template-columns:4fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        height: auto;
+        overflow-y: auto;
+        margin-bottom: 20px;
+     }
+     .charts.productAtive{
+       display: none;
+    }
+}
+
+/* --------------------------Media Quiries Ending--------------------- */
+
+
+
+/* day mode */
+
+body.day{
+    background-color: rgb(241, 241, 241);
+}
+body.day .card{
+    box-shadow: 0 10px 7px -3px rgba(0, 0, 0, 0.062);
+}
+body.day #sidebar{
+    background-color: rgba(255, 255, 255, 0.945);
+    color: rgb(32, 32, 32);
+    box-shadow: 0 10px 7px -3px rgb(202, 202, 202);
+}
+body.day  .material-symbols-outlined{
+    color: rgb(32, 32, 32);
+}
+body.day .main-container span{
+    color:var(--text-color);
+}
+body.day header span{
+    color: rgb(32, 32, 32);
+}
+body.day header{
+    color: rgb(32, 32, 32);
+    box-shadow: 0 10px 7px -3px rgba(0, 0, 0, 0.062);
+    background-color: rgba(255, 255, 255, 0.945);
+}
+body.day .main-container .main-title h4{
+    color: rgb(32, 32, 32);
+}
+body.day .chart-card{
+    background-color: white;
+    color: rgb(32, 32, 32);
+}
+body.day .header-right h4{
+    color: rgb(32, 32, 32);
+}
+body.day .sidebar-list-item:hover{
+    background-color:var(--primary-color) ;
+    color:var(--text-color);
+}
+body.day .sidebar-list-item:hover .material-symbols-outlined {
+    color:var(--text-color);
+}
+body.day #searchInp{
+    color: rgb(32, 32, 32);
+    border-bottom: 1px solid rgb(32, 32, 32);
+}
+
+body.day .toggle:hover{
+    background-color:var(--primary-color) ;
+    color:var(--text-color);
+}
+body.day .toggle:hover #dark{
+    color:var(--text-color);
+}
+body.day .toggle{
+    border-top: 1px solid rgba(73, 73, 73, 0.171);
+}
+
+body.day .product{
+    background-color: var(--primary-color);
+}
+body.day .product-inner{
+    background-color: var(--primary-color);
+}
+body.day .product:hover{
+    background-color: var(--primary-color-light);
+}
+body.day .product-inner:hover{
+    background-color: var(--primary-color-light);
+}
+body.day .product-title h4{
+    color: rgb(32, 32, 32);
+}
+
+/* day mode Ending*/

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body class="">
+    
+<div class="grid-container">
+
+    <!-- header section -->
+    <header class="header">
+        <div class="menu-icon" onclick="openSideBar()">
+            <span class="material-symbols-outlined" id="menuIcon" >menu</span>
+        </div>
+        <div class="header-left">
+            <span class="material-symbols-outlined">search</span>
+            <input id="searchInp" type="text" placeholder="Search here">
+        </div>
+        <div class="header-right">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="material-symbols-outlined">mail</span>
+            <span class="material-symbols-outlined">account_circle</span>
+            <h4>John Wick</h4>
+        </div>
+        
+    </header>
+    <!-- sidebar section -->
+    <aside id="sidebar">
+        <div class="sidebar-title">
+            <div class="sidebar-brand">
+                <span class="material-symbols-outlined" id="storeTitle">shopping_cart</span> STORE
+            </div>
+            <span id="close" class="material-symbols-outlined" onclick="closeSideBar()">close</span>
+        </div>
+
+        <ul class="sidebar-list">
+            <li class="sidebar-list-item" id="dashboardBtn">
+                <span class="material-symbols-outlined">dashboard</span></a>Dashboard
+                <div class="dot1"></div>
+            </li>
+            <li class="sidebar-list-item" id="productBtn">
+                <span class="material-symbols-outlined">inventory_2</span>Products
+                <div class="dot2"></div>
+            </li>
+            <li class="sidebar-list-item">
+                <span class="material-symbols-outlined">category</span>Categories
+            </li>
+            <li class="sidebar-list-item">
+                <span class="material-symbols-outlined"> groups</span>Customers
+            </li>
+            <li class="sidebar-list-item">
+                <span class="material-symbols-outlined">fact_check</span>Inventory
+            </li>
+            <li class="sidebar-list-item">
+                <span class="material-symbols-outlined">ballot</span>Reports
+            </li>
+            <li class="sidebar-list-item">
+                <span class="material-symbols-outlined">settings</span>Settings
+            </li>
+        </ul>
+        <div class="toggle">
+            <div class="toggle-btn">
+                <span class="material-symbols-outlined" id="dark">dark_mode</span>
+                <span class="material-symbols-outlined" id="day">light_mode</span>
+            </div>
+            <p class="modeName">Light mode</p>
+        </div>
+    </aside>
+    <!-- main content section -->
+    <menu class="main-container">
+        <div class="main-title">
+            <h4>DASHBOARD</h4>
+        </div>
+        <div class="main-cards">
+
+            <div class="card">
+                <div class="card-inner">
+                    <h3>PRODUCTS</h3>
+                    <span class="material-symbols-outlined">inventory_2</span>
+                </div>
+                <h1>249</h1>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <h3>CATEGORIES</h3>
+                    <span class="material-symbols-outlined">category</span>
+                </div>
+                <h1>25</h1>
+            </div>
+            
+            <div class="card">
+                <div class="card-inner">
+                    <h3>CUSTOMERS</h3>
+                    <span class="material-symbols-outlined">groups</span>
+                </div>
+                <h1>1500</h1>
+            </div>
+            
+            <div class="card">
+                <div class="card-inner">
+                    <h3>ALERTS</h3>
+                    <span class="material-symbols-outlined">notification_important</span>
+                </div>
+                <h1>56</h1>
+            </div>
+           
+        </div>
+        <div class="charts">
+
+            <div class="chart-card">
+                <h2 class="chart-title">Top 5 Products</h2>
+                <div id="bar-chart">
+                    <canvas id="myBarChart"></canvas>
+                </div>
+            </div>
+        
+            <div class="chart-card">
+                <h2 class="chart-title">Purchase and Sales Order</h2>
+                <div id="area-chart"></div>
+            </div>
+        
+            
+        </div>
+        
+        <!--Product Section-->
+        <div class="product-section">
+            <div class="product-title">
+                <h4>PRODUCTS</h4>
+            </div>
+            <div class="products-card">
+
+                <div class="product">
+                    <div class="product-inner">
+                        <span class="material-symbols-outlined">cable</span>
+                        <p>Electronics</p>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-inner">
+                        <span class="material-symbols-outlined">styler</span>
+                        <p>Clothing</p>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-inner">
+                        <span class="material-symbols-outlined"> steps</span>
+                        <p>Footwears</p>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-inner">
+                        <span class="material-symbols-outlined">eyeglasses</span>
+                        <p>Eyewears</p>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-inner">
+                        <span class="material-symbols-outlined">medical_services</span>
+                        <p>Medical</p>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-inner">
+                        <span class="material-symbols-outlined"> car_repair</span>
+                        <p>Auto Accessories</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+    </menu>
+    
+</div>
+
+<!-- -----------------Js for chart----------------- -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.42.0/apexcharts.min.js" integrity="sha512-HctQcT5hnI/elQck4950pvd50RuDnjCSGSoHI8CNyQIYVxsUoyJ+gSQIOrll4oM/Z7Kfi7WCLMIbJbiwYHFCpA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- -----------------Main Js file----------------- -->
+<script src="main.js"></script>  
+</body>
+</html>
